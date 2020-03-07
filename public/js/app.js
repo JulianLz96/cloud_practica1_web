@@ -58,7 +58,6 @@ $(document).ready(function() {
       $("#status").html("Error: "+ data.error);
     } else {
       $("#status").html("");
-      console.log(data);
       total = data.num_results;
       url = data.results;
       pages = Math.trunc(data.num_results / 6) + 1;
@@ -71,7 +70,6 @@ $(document).ready(function() {
    }
 
   function renderImg(images){
-    let tag = "#photo";
     for(let i = 0; i < 6; i++){
       let image;
       if(images[i]){
@@ -81,8 +79,8 @@ $(document).ready(function() {
       } else {
         image = ""
       }
-      tempTag = tag + i;
-      $(tempTag).html(image);
+      let tag = "#photo" + i;
+      $(tag).html(image);
     }
   }
 });
